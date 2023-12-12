@@ -1,0 +1,31 @@
+// colors
+
+$blue: #2196f3;
+$white: #fff;
+
+//
+
+.ticketsList {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 20px;
+
+  &__showMoreBtn {
+    width: 100%;
+    padding: 15px 20px;
+    color: $white;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 20px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    background-color: $blue;
+    border-radius: 6px;
+
+    &:focus {
+      outline: 1px solid #1763a1;
+    }
+  }
+}

@@ -1,0 +1,80 @@
+// colors
+
+$white: #fff;
+$dark-gray: #4a4a4a;
+$hover-light-blue: #f1fcff;
+$gray-blue: #9abbce;
+$blue: #2196f3;
+
+//
+
+.transferFilter {
+  padding: 20px 0 10px;
+  width: 232px;
+  height: 252px;
+  background-color: $white;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.1);
+
+  &__title {
+    display: block;
+    margin-bottom: 10px;
+    padding: 0 20px;
+    color: $dark-gray;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 100%;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+
+  &__filterList {
+    list-style: none;
+  }
+}
+
+.filterItem {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 10px 20px;
+  width: 100%;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 20px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+
+  &:hover {
+    background-color: $hover-light-blue;
+  }
+
+  &__checkbox {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    border: 0;
+    clip: rect(0 0 0 0);
+
+    &:checked + .filterItem__customCheckbox {
+      border: 1px solid $blue;
+      background-image: url('./img/done.svg');
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    &:focus + .filterItem__customCheckbox {
+      border: 1px solid $blue;
+    }
+  }
+
+  &__customCheckbox {
+    height: 20px;
+    width: 20px;
+    border: 1px solid $gray-blue;
+    border-radius: 3px;
+  }
+}
