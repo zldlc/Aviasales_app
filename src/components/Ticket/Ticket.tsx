@@ -3,7 +3,7 @@ import React, { FC } from 'react';
 import FlightInfo from '../FlightInfo/FlightInfo';
 
 import style from './Ticket.module.scss';
-import s7Logo from './S7_logo.png';
+import s7Logo from '../../assets/images/S7_logo.png';
 
 const Ticket: FC = () => {
   return (

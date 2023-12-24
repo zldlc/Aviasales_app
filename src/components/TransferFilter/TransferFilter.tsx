@@ -1,44 +1,20 @@
 import React, { FC } from 'react';
 
+import Checkbox from '../UI/Checkbox/Checkbox';
+
 import style from './TransferFilter.module.scss';
+import { useAppSelector } from '../../stores/hooks';
 
 const TransferFilter: FC = () => {
+  const filters = useAppSelector((state) => state.ticketsFilter.filters);
+
   return (
     <div className={style.transferFilter}>
       <span className={style.transferFilter__title}>Количество пересадок</span>
       <ul className={style.transferFilter__filterList}>
-        <li>
-          <label className={[style.transferFilter__filterItem, style.filterItem].join(' ')}>
-            <input type="checkbox" className={style.filterItem__checkbox} />
-            <span className={style.filterItem__customCheckbox}></span>
-            Все
-          </label>
-        </li>
-        <li>
-          <label className={[style.transferFilter__filterItem, style.filterItem].join(' ')}>
-            <input type="checkbox" className={style.filterItem__checkbox} />
-            <span className={style.filterItem__customCheckbox}></span>
-            Без пересадок
-          </label>
-        </li>
-        <li>
-          <label className={[style.transferFilter__filterItem, style.filterItem].join(' ')}>
-            <input type="checkbox" className={style.filterItem__checkbox} />
-            <span className={style.filterItem__customCheckbox}></span>1 пересадка
-          </label>
-        </li>
-        <li>
-          <label className={[style.transferFilter__filterItem, style.filterItem].join(' ')}>
-            <input type="checkbox" className={style.filterItem__checkbox} />
-            <span className={style.filterItem__customCheckbox}></span>2 пересадки
-          </label>
-        </li>
-        <li>
-          <label className={[style.transferFilter__filterItem, style.filterItem].join(' ')}>
-            <input type="checkbox" className={style.filterItem__checkbox} />
-            <span className={style.filterItem__customCheckbox}></span>3 пересадки
-          </label>
-        </li>
+        {filters.map((filter) => {
+          return <Checkbox key={filter.name} {...filter} />;
+        })}
       </ul>
     </div>
   );
