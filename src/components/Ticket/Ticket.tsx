@@ -3,19 +3,26 @@ import React, { FC } from 'react';
 import FlightInfo from '../FlightInfo/FlightInfo';
 
 import style from './Ticket.module.scss';
-import s7Logo from '../../assets/images/S7_logo.png';
+import { IFlightInfo } from '../../types/types';
 
-const Ticket: FC = () => {
+interface ITicketProps {
+  price: number;
+  carrier: string;
+  segments: IFlightInfo[];
+}
+
+const Ticket: FC<ITicketProps> = ({ price, carrier, segments }) => {
   return (
     <li>
       <article className={style.ticket}>
         <header className={style.ticket__header}>
-          <span className={style.ticket__price}>13 400 ₽</span>
-          <img src={s7Logo} alt="S7 logo" />
+          <span className={style.ticket__price}>{price.toLocaleString('ru-RU')} ₽</span>
+          <img src={`https://pics.avs.io/99/36/${carrier}.png`} alt="S7 logo" />
         </header>
         <ul className={style.ticket__flightInfoList}>
-          <FlightInfo />
-          <FlightInfo />
+          {segments.map((item, index) => {
+            return <FlightInfo key={index} {...item} />;
+          })}
         </ul>
       </article>
     </li>

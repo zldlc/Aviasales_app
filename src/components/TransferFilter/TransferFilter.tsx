@@ -3,7 +3,7 @@ import React, { FC } from 'react';
 import Checkbox from '../UI/Checkbox/Checkbox';
 
 import style from './TransferFilter.module.scss';
-import { useAppSelector } from '../../stores/hooks';
+import { useAppSelector } from '../../stores/hooks/hooks';
 
 const TransferFilter: FC = () => {
   const filters = useAppSelector((state) => state.ticketsFilter.filters);

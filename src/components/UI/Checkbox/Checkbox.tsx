@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
 
 import style from './Checkbox.module.scss';
-import { useAppDispatch } from '../../../stores/hooks';
-import { toggleFilter } from '../../../stores/ticketsFilterSlice';
+import { useAppDispatch } from '../../../stores/hooks/hooks';
+import { toggleFilter } from '../../../stores/slices/ticketsFilterSlice';
 
 interface CheckboxProps {
   label: string;

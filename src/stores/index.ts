@@ -1,11 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit';
-import ticketsSortReducer from './ticketsSortSlice';
-import ticketsFilterReducer from './ticketsFilterSlice';
+import ticketsSortReducer from './slices/ticketsSortSlice';
+import ticketsFilterReducer from './slices/ticketsFilterSlice';
+import searchTicketsReducer from './slices/searchTicketsSlice';
 
 export const store = configureStore({
   reducer: {
     ticketsFilter: ticketsFilterReducer,
     ticketsSort: ticketsSortReducer,
+    searchTickets: searchTicketsReducer,
   },
 });
 
