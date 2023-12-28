@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
 interface ticketsSortState {
   currentSortTab: string;
@@ -11,8 +11,12 @@ const initialState: ticketsSortState = {
 const ticketsSortSlice = createSlice({
   name: 'ticketsSort',
   initialState,
-  reducers: {},
+  reducers: {
+    toggleTabs: (state, action: PayloadAction<string>) => {
+      state.currentSortTab = action.payload;
+    },
+  },
 });
 
-// export {} = ticketsFilterSlice.actions;
+export const { toggleTabs } = ticketsSortSlice.actions;
 export default ticketsSortSlice.reducer;
